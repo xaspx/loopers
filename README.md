@@ -8,8 +8,9 @@
 
 <p align="left">
   <img src="https://img.shields.io/badge/license-MIT-black.svg?style=for-the-badge" alt="License" />
-  <img src="https://img.shields.io/badge/go-1.26.1-black.svg?style=for-the-badge" alt="Go Version" />
+  <img src="https://img.shields.io/badge/go-1.26.3-black.svg?style=for-the-badge" alt="Go Version" />
   <img src="https://img.shields.io/badge/providers-6%20Supported-black.svg?style=for-the-badge" alt="Providers" />
+  <a href="https://github.com/xaspx/loopers/actions/workflows/ci.yml"><img src="https://img.shields.io/github/actions/workflow/status/xaspx/loopers/ci.yml?branch=main&style=for-the-badge" alt="Build Status" /></a>
   <a href="https://securityscorecards.dev/viewer/?uri=github.com/xaspx/loopers"><img src="https://api.securityscorecards.dev/projects/github.com/xaspx/loopers/badge?style=for-the-badge" alt="OpenSSF Scorecard" /></a>
 </p>
 
