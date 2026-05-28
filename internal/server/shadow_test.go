@@ -9,7 +9,6 @@ import (
 	"testing"
 	"time"
 
-	"github.com/gin-gonic/gin"
 	"github.com/loopers/loopers/internal/budget"
 	"github.com/loopers/loopers/internal/keyring"
 	"github.com/loopers/loopers/internal/pricing"
