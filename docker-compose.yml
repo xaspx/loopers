@@ -15,7 +15,7 @@ services:
       - loopers-net
 
   loopers:
-    build: .
+    image: ghcr.io/xaspx/loopers:latest
     container_name: loopers-proxy
     ports:
       - "8080:8080"
