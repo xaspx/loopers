@@ -92,15 +92,15 @@ docker_manifests:
       - "ghcr.io/xaspx/loopers:{{ .Tag }}-amd64"
       - "ghcr.io/xaspx/loopers:{{ .Tag }}-arm64"
 
-# Homebrew tap publishing is temporarily disabled to prevent CI failures
-# brews:
-#   - name: loopers
-#     repository:
-#       owner: xaspx
-#       name: homebrew-tap
-#     directory: Formula
-#     homepage: "https://loopers.network"
-#     description: "The Circuit Breaker for AI API Billing"
-#     license: "MIT"
-#     install: |
-#       bin.install "loopers"
+# Homebrew tap publishing is enabled.
+brews:
+  - name: loopers
+    repository:
+      owner: xaspx
+      name: homebrew-tap
+    directory: Formula
+    homepage: "https://loopers.network"
+    description: "The Circuit Breaker for AI API Billing"
+    license: "MIT"
+    install: |
+      bin.install "loopers"
