@@ -6,10 +6,10 @@ import (
 	"context"
 	"encoding/binary"
 	"fmt"
-	"io"
-	"time"
 	"github.com/loopers/loopers/internal/logging"
 	"github.com/loopers/loopers/internal/provider"
+	"io"
+	"time"
 )
 
 // splitSSEFrames is a bufio.SplitFunc that splits on double newlines (\n\n).
