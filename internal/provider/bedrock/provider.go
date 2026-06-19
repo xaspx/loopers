@@ -12,11 +12,11 @@ import (
 	"strings"
 	"time"
 
+	"github.com/xaspx/loopers/internal/logging"
+	"github.com/xaspx/loopers/internal/provider"
 	"github.com/aws/aws-sdk-go-v2/aws"
 	"github.com/aws/aws-sdk-go-v2/aws/protocol/eventstream"
 	v4 "github.com/aws/aws-sdk-go-v2/aws/signer/v4"
-	"github.com/xaspx/loopers/internal/logging"
-	"github.com/xaspx/loopers/internal/provider"
 )
 
 type BedrockProvider struct{}

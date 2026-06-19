@@ -10,7 +10,6 @@ import (
 	"strconv"
 	"time"
 
-	"github.com/gin-gonic/gin"
 	"github.com/xaspx/loopers/internal/alerting"
 	"github.com/xaspx/loopers/internal/budget"
 	"github.com/xaspx/loopers/internal/keyring"
@@ -35,6 +34,7 @@ import (
 	"github.com/xaspx/loopers/internal/provider/xai"
 	"github.com/xaspx/loopers/internal/proxy"
 	"github.com/xaspx/loopers/pkg/api"
+	"github.com/gin-gonic/gin"
 	"github.com/prometheus/client_golang/prometheus"
 	"github.com/prometheus/client_golang/prometheus/promauto"
 	"github.com/prometheus/client_golang/prometheus/promhttp"

@@ -10,10 +10,10 @@ import (
 	"testing"
 	"time"
 
-	"github.com/alicebob/miniredis/v2"
 	"github.com/xaspx/loopers/internal/budget"
 	"github.com/xaspx/loopers/internal/keyring"
 	"github.com/xaspx/loopers/internal/pricing"
+	"github.com/alicebob/miniredis/v2"
 	"github.com/prometheus/client_golang/prometheus/testutil"
 )
 
