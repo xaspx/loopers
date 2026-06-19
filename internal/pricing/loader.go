@@ -6,7 +6,7 @@ import (
 	"sync"
 	"time"
 
-	"github.com/loopers/loopers/internal/logging"
+	"github.com/xaspx/loopers/internal/logging"
 	"github.com/spf13/viper"
 )
 

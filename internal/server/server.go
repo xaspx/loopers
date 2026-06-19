@@ -11,30 +11,30 @@ import (
 	"time"
 
 	"github.com/gin-gonic/gin"
-	"github.com/loopers/loopers/internal/alerting"
-	"github.com/loopers/loopers/internal/budget"
-	"github.com/loopers/loopers/internal/keyring"
-	"github.com/loopers/loopers/internal/logging"
-	"github.com/loopers/loopers/internal/loop"
-	"github.com/loopers/loopers/internal/pricing"
-	"github.com/loopers/loopers/internal/provider"
-	"github.com/loopers/loopers/internal/provider/anthropic"
-	"github.com/loopers/loopers/internal/provider/azure"
-	"github.com/loopers/loopers/internal/provider/bedrock"
-	"github.com/loopers/loopers/internal/provider/cohere"
-	"github.com/loopers/loopers/internal/provider/deepseek"
-	"github.com/loopers/loopers/internal/provider/fireworks"
-	"github.com/loopers/loopers/internal/provider/gemini"
-	"github.com/loopers/loopers/internal/provider/generic"
-	"github.com/loopers/loopers/internal/provider/groq"
-	"github.com/loopers/loopers/internal/provider/mistral"
-	"github.com/loopers/loopers/internal/provider/ollama"
-	"github.com/loopers/loopers/internal/provider/openai"
-	"github.com/loopers/loopers/internal/provider/together"
-	"github.com/loopers/loopers/internal/provider/vllm"
-	"github.com/loopers/loopers/internal/provider/xai"
-	"github.com/loopers/loopers/internal/proxy"
-	"github.com/loopers/loopers/pkg/api"
+	"github.com/xaspx/loopers/internal/alerting"
+	"github.com/xaspx/loopers/internal/budget"
+	"github.com/xaspx/loopers/internal/keyring"
+	"github.com/xaspx/loopers/internal/logging"
+	"github.com/xaspx/loopers/internal/loop"
+	"github.com/xaspx/loopers/internal/pricing"
+	"github.com/xaspx/loopers/internal/provider"
+	"github.com/xaspx/loopers/internal/provider/anthropic"
+	"github.com/xaspx/loopers/internal/provider/azure"
+	"github.com/xaspx/loopers/internal/provider/bedrock"
+	"github.com/xaspx/loopers/internal/provider/cohere"
+	"github.com/xaspx/loopers/internal/provider/deepseek"
+	"github.com/xaspx/loopers/internal/provider/fireworks"
+	"github.com/xaspx/loopers/internal/provider/gemini"
+	"github.com/xaspx/loopers/internal/provider/generic"
+	"github.com/xaspx/loopers/internal/provider/groq"
+	"github.com/xaspx/loopers/internal/provider/mistral"
+	"github.com/xaspx/loopers/internal/provider/ollama"
+	"github.com/xaspx/loopers/internal/provider/openai"
+	"github.com/xaspx/loopers/internal/provider/together"
+	"github.com/xaspx/loopers/internal/provider/vllm"
+	"github.com/xaspx/loopers/internal/provider/xai"
+	"github.com/xaspx/loopers/internal/proxy"
+	"github.com/xaspx/loopers/pkg/api"
 	"github.com/prometheus/client_golang/prometheus"
 	"github.com/prometheus/client_golang/prometheus/promauto"
 	"github.com/prometheus/client_golang/prometheus/promhttp"
@@ -474,7 +474,7 @@ sessionCheck:
 		allowed, val1, val2, status, err := s.redis.CheckAndReserveSession(c.Request.Context(), sessionID, estimatedCost, sessionBudget, sessionMaxSteps, 3600)
 		if err != nil {
 			// Refund key budget reservation
-			s.redis.LeaseManager.ReconcileSpend(keyHash, estimatedCost, 0)
+			s.redis.LeaseManager.ReconcileSpend(c.Request.Context(), keyHash, estimatedCost, 0)
 			logging.Logger.Error().Err(err).Msg("failed_session_reserve")
 			requestsTotal.WithLabelValues(providerName, model, "503").Inc()
 			c.AbortWithStatusJSON(http.StatusServiceUnavailable, gin.H{
@@ -512,7 +512,7 @@ sessionCheck:
 				rdb.IncrBy(c.Request.Context(), sessionStepsKey, 1)
 			} else {
 				// Refund key budget reservation
-				s.redis.LeaseManager.ReconcileSpend(keyHash, estimatedCost, 0)
+				s.redis.LeaseManager.ReconcileSpend(c.Request.Context(), keyHash, estimatedCost, 0)
 
 				if s.alerter != nil {
 					go s.alerter.TriggerBlockAlert(keyHash, meta.Name, providerName, model, windowName, val1, val2, estimatedCost)
@@ -542,7 +542,7 @@ sessionCheck:
 				loopBlocksTotal.WithLabelValues(providerName, result.Rule).Inc()
 
 				// Refund key budget reservation
-				s.redis.LeaseManager.ReconcileSpend(keyHash, estimatedCost, 0)
+				s.redis.LeaseManager.ReconcileSpend(c.Request.Context(), keyHash, estimatedCost, 0)
 				sessionSpendKey := fmt.Sprintf("loopers:session:%s:spend", sessionID)
 				_, _ = s.redis.GetUnderlyingClient().IncrByFloat(c.Request.Context(), sessionSpendKey, -estimatedCost).Result()
 
@@ -622,7 +622,7 @@ func (s *Server) modifyResponse(resp *http.Response) error {
 	sessionID, _ := ctx.Value(sessionIDCtx).(string)
 
 	if resp.StatusCode != http.StatusOK {
-		s.redis.LeaseManager.ReconcileSpend(keyHash, reservedCost, 0)
+		s.redis.LeaseManager.ReconcileSpend(ctx, keyHash, reservedCost, 0)
 		if sessionID != "" {
 			sessionSpendKey := fmt.Sprintf("loopers:session:%s:spend", sessionID)
 			_, _ = s.redis.GetUnderlyingClient().IncrByFloat(ctx, sessionSpendKey, -reservedCost).Result()
@@ -671,7 +671,7 @@ func (s *Server) modifyResponse(resp *http.Response) error {
 				return false
 			},
 			func(actualCost float64, inTokens, outTokens int, forcedCut bool) {
-				s.redis.LeaseManager.ReconcileSpend(keyHash, totalPaid, actualCost)
+				s.redis.LeaseManager.ReconcileSpend(ctx, keyHash, totalPaid, actualCost)
 				if sessionID != "" {
 					sessionSpendKey := fmt.Sprintf("loopers:session:%s:spend", sessionID)
 					_, _ = s.redis.GetUnderlyingClient().IncrByFloat(ctx, sessionSpendKey, actualCost-totalPaid).Result()
@@ -720,7 +720,7 @@ func (s *Server) modifyResponse(resp *http.Response) error {
 		}
 
 		actualCost := (float64(totalInputTokens)*inputPrice + float64(totalOutputTokens)*outputPrice) / 1000000.0
-		s.redis.LeaseManager.ReconcileSpend(keyHash, reservedCost, actualCost)
+		s.redis.LeaseManager.ReconcileSpend(ctx, keyHash, reservedCost, actualCost)
 		resp.Header.Set("X-Loopers-Request-Cost", fmt.Sprintf("%.6f", actualCost))
 
 		if sessionID != "" {

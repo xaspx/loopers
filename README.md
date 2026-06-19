@@ -139,7 +139,7 @@ docker pull ghcr.io/xaspx/loopers:latest
 
 **Or initialize via the wizard** (requires Go):
 ```bash
-go run github.com/loopers/loopers/cmd/loopers init
+go run github.com/xaspx/loopers/cmd/loopers init
 ```
 
 - [ ] **Step 2: Spin Up the Proxy**

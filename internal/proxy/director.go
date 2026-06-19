@@ -7,8 +7,8 @@ import (
 	"net/url"
 	"time"
 
-	"github.com/loopers/loopers/internal/logging"
-	"github.com/loopers/loopers/internal/provider"
+	"github.com/xaspx/loopers/internal/logging"
+	"github.com/xaspx/loopers/internal/provider"
 )
 
 // ContextKey is a custom type for context keys to avoid collisions.

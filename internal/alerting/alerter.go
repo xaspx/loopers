@@ -8,7 +8,7 @@ import (
 	"net/http"
 	"time"
 
-	"github.com/loopers/loopers/internal/logging"
+	"github.com/xaspx/loopers/internal/logging"
 	"github.com/redis/go-redis/v9"
 )
 

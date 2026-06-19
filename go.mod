@@ -1,4 +1,4 @@
-module github.com/loopers/loopers
+module github.com/xaspx/loopers
 
 go 1.25.0
 

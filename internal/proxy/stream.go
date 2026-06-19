@@ -6,8 +6,8 @@ import (
 	"context"
 	"encoding/binary"
 	"fmt"
-	"github.com/loopers/loopers/internal/logging"
-	"github.com/loopers/loopers/internal/provider"
+	"github.com/xaspx/loopers/internal/logging"
+	"github.com/xaspx/loopers/internal/provider"
 	"io"
 	"time"
 )

@@ -9,7 +9,7 @@ import (
 	"syscall"
 	"time"
 
-	"github.com/loopers/loopers/internal/logging"
+	"github.com/xaspx/loopers/internal/logging"
 )
 
 // ListenAndServeWithGracefulShutdown starts the HTTP server and listens for SIGTERM/SIGINT.

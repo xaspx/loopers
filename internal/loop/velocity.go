@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/loopers/loopers/internal/logging"
+	"github.com/xaspx/loopers/internal/logging"
 )
 
 // CheckVelocity returns (isAnomaly, currentRPS, error)

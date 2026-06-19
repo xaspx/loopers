@@ -7,8 +7,8 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/loopers/loopers/internal/provider/anthropic"
-	"github.com/loopers/loopers/internal/provider/openai"
+	"github.com/xaspx/loopers/internal/provider/anthropic"
+	"github.com/xaspx/loopers/internal/provider/openai"
 )
 
 type mockReadCloser struct {

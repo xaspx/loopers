@@ -4,7 +4,7 @@ import (
 	"bytes"
 	"encoding/json"
 
-	"github.com/loopers/loopers/pkg/api"
+	"github.com/xaspx/loopers/pkg/api"
 )
 
 // parseAnthropicFrame parses event and data fields from an Anthropic SSE frame.

@@ -6,7 +6,7 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/loopers/loopers/internal/cache"
+	"github.com/xaspx/loopers/internal/cache"
 	"github.com/redis/go-redis/v9"
 	"golang.org/x/sync/singleflight"
 )

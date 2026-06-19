@@ -11,9 +11,9 @@ import (
 
 	"github.com/alicebob/miniredis/v2"
 	"github.com/google/uuid"
-	"github.com/loopers/loopers/internal/budget"
-	"github.com/loopers/loopers/internal/keyring"
-	"github.com/loopers/loopers/internal/pricing"
+	"github.com/xaspx/loopers/internal/budget"
+	"github.com/xaspx/loopers/internal/keyring"
+	"github.com/xaspx/loopers/internal/pricing"
 )
 
 type closeNotifierRecorder struct {

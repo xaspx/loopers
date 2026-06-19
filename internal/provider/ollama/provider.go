@@ -5,8 +5,8 @@ import (
 	"net/http"
 	"strings"
 
-	"github.com/loopers/loopers/internal/provider"
-	"github.com/loopers/loopers/internal/provider/openai"
+	"github.com/xaspx/loopers/internal/provider"
+	"github.com/xaspx/loopers/internal/provider/openai"
 )
 
 type OllamaProvider struct {

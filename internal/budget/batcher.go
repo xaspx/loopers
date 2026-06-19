@@ -4,7 +4,7 @@ import (
 	"context"
 	"time"
 
-	"github.com/loopers/loopers/internal/logging"
+	"github.com/xaspx/loopers/internal/logging"
 )
 
 type reserveReq struct {
