@@ -143,7 +143,7 @@ func (p *MyProvider) FormatBudgetExceededSSE() []byte {
 Open `internal/server/server.go`. Inside `NewServer()`, import your provider package and register it to the registry:
 
 ```go
-import "github.com/loopers/loopers/internal/provider/myprovider"
+import "github.com/xaspx/loopers/internal/provider/myprovider"
 
 // ... inside NewServer()
 reg.Register(myprovider.NewMyProvider())
