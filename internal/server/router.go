@@ -17,6 +17,7 @@ import (
 	"github.com/xaspx/loopers/internal/provider"
 	"github.com/xaspx/loopers/internal/proxy"
 	"github.com/xaspx/loopers/internal/session"
+	"github.com/xaspx/loopers/pkg/api"
 	"github.com/gin-gonic/gin"
 	"github.com/spf13/viper"
 	"go.opentelemetry.io/otel/attribute"
@@ -392,6 +393,7 @@ func (s *Server) modifyResponse(resp *http.Response) error {
 
 	// Set initial headers for both stream and non-stream
 	resp.Header.Set("X-Loopers-Request-Cost-Estimated", fmt.Sprintf("%.6f", reservedCost))
+	resp.Header.Set("X-Loopers-Support", api.GitHubStarCTA)
 	if agentName, ok := ctx.Value(agentNameCtx).(string); ok && agentName != "" {
 		resp.Header.Set("X-Loopers-Agent-Name", agentName)
 	}
