@@ -8,6 +8,7 @@ import (
 	"time"
 
 	"github.com/xaspx/loopers/internal/logging"
+	"github.com/xaspx/loopers/internal/netutil"
 	"github.com/spf13/viper"
 )
 
@@ -27,6 +28,7 @@ func NewProxy(modifyResponse func(*http.Response) error) *Proxy {
 		timeout = 30
 	}
 	transport := &http.Transport{
+		DialContext:           netutil.SecureDialContext,
 		MaxIdleConns:          1000,
 		MaxIdleConnsPerHost:   1000,
 		ForceAttemptHTTP2:     true,
