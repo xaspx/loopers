@@ -34,6 +34,7 @@ import (
 	"github.com/xaspx/loopers/internal/provider/mistral"
 	"github.com/xaspx/loopers/internal/provider/ollama"
 	"github.com/xaspx/loopers/internal/provider/openai"
+	"github.com/xaspx/loopers/internal/provider/openrouter"
 	"github.com/xaspx/loopers/internal/provider/together"
 	"github.com/xaspx/loopers/internal/provider/vllm"
 	"github.com/xaspx/loopers/internal/provider/xai"
@@ -113,6 +114,7 @@ func NewServer(redisClient *budget.Client, pricingStore *pricing.Store) *Server 
 	mustRegister(fireworks.NewFireworksProvider())
 	mustRegister(xai.NewXAIProvider())
 	mustRegister(vllm.NewVLLMProvider())
+	mustRegister(openrouter.NewOpenRouterProvider())
 
 	type GenericProviderConfig struct {
 		Name    string `mapstructure:"name"`
