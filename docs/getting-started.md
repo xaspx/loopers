@@ -31,8 +31,8 @@ cd loopers
 # Build the binary
 go build -o loopers ./cmd/loopers
 
-# Run the proxy server
-./loopers serve
+# Run the proxy server (bypassing TLS for local development)
+SERVER_INSECURE_DEV=true ./loopers serve
 ```
 
 ## Quick Start Configuration
