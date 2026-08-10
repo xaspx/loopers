@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.4.0](https://github.com/xaspx/loopers/compare/v2.3.1...v2.4.0) (2026-08-10)
+
+
+### Features
+
+* TUI enhancement ([1600417](https://github.com/xaspx/loopers/commit/16004171224271488ee999567f1316583acd75e0))
+
 ## [2.3.1](https://github.com/xaspx/loopers/compare/v2.3.0...v2.3.1) (2026-08-07)
 
 
