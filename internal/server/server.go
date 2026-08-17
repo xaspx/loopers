@@ -13,6 +13,7 @@ import (
 	"github.com/xaspx/loopers/internal/a2a"
 	"github.com/xaspx/loopers/internal/alerting"
 	"github.com/xaspx/loopers/internal/budget"
+	"github.com/xaspx/loopers/internal/inspector"
 	"github.com/xaspx/loopers/internal/keyring"
 	"github.com/xaspx/loopers/internal/logging"
 	"github.com/xaspx/loopers/internal/loop"
@@ -80,6 +81,7 @@ type Server struct {
 	otelShutdown     func(context.Context) error
 	mcpHandler       *mcp.Handler
 	riskProfileCfg   riskprofile.Config
+	dlpCfg           inspector.DLPConfig
 	rateLimiter      *ratelimit.Limiter
 	sessionManager   *session.Manager
 	policyEngine     *policy.Engine
@@ -221,6 +223,9 @@ func NewServer(redisClient *budget.Client, pricingStore *pricing.Store) *Server 
 		_ = viper.UnmarshalKey("risk_profile", &riskProfileCfg)
 	}
 
+	var dlpCfg inspector.DLPConfig
+	_ = viper.UnmarshalKey("server.dlp", &dlpCfg)
+
 	var mcpCfg mcp.Config
 	var mcpHandler *mcp.Handler
 	if err := viper.UnmarshalKey("mcp", &mcpCfg); err == nil && mcpCfg.Enabled {
@@ -274,6 +279,7 @@ func NewServer(redisClient *budget.Client, pricingStore *pricing.Store) *Server 
 		otelShutdown:     otelShutdown,
 		mcpHandler:       mcpHandler,
 		riskProfileCfg:   riskProfileCfg,
+		dlpCfg:           dlpCfg,
 		rateLimiter:      rateLimiter,
 		sessionManager:   sessionManager,
 		policyEngine:     policyEngine,
