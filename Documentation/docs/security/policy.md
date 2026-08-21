@@ -36,7 +36,7 @@ If you find a security problem, please do not post it publicly. That could put o
 
 **You can report security issues by:**
 1. Using private vulnerability reporting on the GitHub repository page (preferred).
-2. Sending an email to `security@loopers.network` (or `38959282+xaspx@users.noreply.github.com`).
+2. Sending an email to `xaspx@users.noreply.github.com`.
 
 ### What to include in your report
 * The version of Loopers you are using
