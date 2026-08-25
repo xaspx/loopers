@@ -8,6 +8,7 @@ import (
 	"os"
 	"time"
 
+	"github.com/xaspx/loopers/internal/blastradius"
 	"github.com/xaspx/loopers/internal/policy"
 	"github.com/xaspx/loopers/internal/session"
 	"github.com/xaspx/loopers/internal/syntactic"
@@ -264,6 +265,12 @@ func (v *Verifier) VerifyTrace(ctx context.Context, traceFile *SessionTraceFile)
 				PromptText:    trace.Content,
 				ToolName:      trace.ToolName,
 				ToolArguments: trace.Arguments,
+			}
+			if (actionType == "mcp_tool_call" || trace.ToolName != "") && trace.ToolName != "" {
+				br := blastradius.Calculate(trace.ToolName, trace.Arguments)
+				actionCtx.BlastRadius = br.Score
+				actionCtx.BlastRadiusTier = br.Tier
+				actionCtx.BlastRadiusReasons = br.Reasons
 			}
 			if trace.Content != "" {
 				obf := syntactic.AnalyzeObfuscation(trace.Content)
