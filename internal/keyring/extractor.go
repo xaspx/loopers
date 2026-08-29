@@ -12,9 +12,9 @@ import (
 	"strings"
 	"time"
 
-	"github.com/xaspx/loopers/internal/cache"
 	"github.com/redis/go-redis/v9"
 	"github.com/spf13/viper"
+	"github.com/xaspx/loopers/internal/cache"
 	"golang.org/x/sync/singleflight"
 )
 

@@ -6,9 +6,9 @@ import (
 
 	"strings"
 
-	"github.com/xaspx/loopers/cmd/loopers/ui"
 	"github.com/charmbracelet/huh"
 	"github.com/spf13/viper"
+	"github.com/xaspx/loopers/cmd/loopers/ui"
 )
 
 func screenInit() {

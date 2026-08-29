@@ -13,15 +13,15 @@ import (
 	"testing"
 	"time"
 
-	"github.com/xaspx/loopers/internal/budget"
-	"github.com/xaspx/loopers/internal/keyring"
-	"github.com/xaspx/loopers/internal/pricing"
 	"github.com/alicebob/miniredis/v2"
 	"github.com/lestrrat-go/jwx/v3/jwa"
 	"github.com/lestrrat-go/jwx/v3/jwk"
 	"github.com/lestrrat-go/jwx/v3/jws"
 	"github.com/lestrrat-go/jwx/v3/jwt"
 	"github.com/spf13/viper"
+	"github.com/xaspx/loopers/internal/budget"
+	"github.com/xaspx/loopers/internal/keyring"
+	"github.com/xaspx/loopers/internal/pricing"
 )
 
 func TestZSPAuthRouting(t *testing.T) {

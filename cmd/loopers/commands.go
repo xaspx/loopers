@@ -15,15 +15,15 @@ import (
 	"strings"
 	"time"
 
+	"github.com/charmbracelet/huh"
+	"github.com/spf13/cobra"
+	"github.com/spf13/viper"
 	"github.com/xaspx/loopers/cmd/loopers/ui"
 	"github.com/xaspx/loopers/internal/budget"
 	"github.com/xaspx/loopers/internal/keyring"
 	"github.com/xaspx/loopers/internal/logging"
 	"github.com/xaspx/loopers/internal/pricing"
 	"github.com/xaspx/loopers/internal/server"
-	"github.com/charmbracelet/huh"
-	"github.com/spf13/cobra"
-	"github.com/spf13/viper"
 )
 
 var (

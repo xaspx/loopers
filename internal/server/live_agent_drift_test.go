@@ -12,13 +12,13 @@ import (
 	"testing"
 	"time"
 
-	"github.com/xaspx/loopers/internal/budget"
-	"github.com/xaspx/loopers/internal/keyring"
-	"github.com/xaspx/loopers/internal/pricing"
 	"github.com/redis/go-redis/v9"
 	"github.com/spf13/viper"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
+	"github.com/xaspx/loopers/internal/budget"
+	"github.com/xaspx/loopers/internal/keyring"
+	"github.com/xaspx/loopers/internal/pricing"
 )
 
 const realLiveModel = "nvidia/nemotron-3-nano-30b-a3b:free"

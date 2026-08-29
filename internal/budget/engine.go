@@ -6,8 +6,8 @@ import (
 	"strconv"
 	"time"
 
-	"github.com/xaspx/loopers/internal/cache"
 	"github.com/spf13/viper"
+	"github.com/xaspx/loopers/internal/cache"
 	"golang.org/x/sync/singleflight"
 )
 

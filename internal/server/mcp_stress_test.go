@@ -14,11 +14,11 @@ import (
 	"testing"
 	"time"
 
+	"github.com/alicebob/miniredis/v2"
+	"github.com/spf13/viper"
 	"github.com/xaspx/loopers/internal/budget"
 	"github.com/xaspx/loopers/internal/keyring"
 	"github.com/xaspx/loopers/internal/pricing"
-	"github.com/alicebob/miniredis/v2"
-	"github.com/spf13/viper"
 )
 
 func setupStressServer(t *testing.T, upstreamHandler http.HandlerFunc) (*miniredis.Miniredis, *budget.Client, *Server, string) {
