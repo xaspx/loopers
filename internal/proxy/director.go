@@ -7,10 +7,10 @@ import (
 	"net/url"
 	"time"
 
+	"github.com/spf13/viper"
 	"github.com/xaspx/loopers/internal/logging"
 	"github.com/xaspx/loopers/internal/netutil"
 	"github.com/xaspx/loopers/internal/provider"
-	"github.com/spf13/viper"
 )
 
 // ContextKey is a custom type for context keys to avoid collisions.

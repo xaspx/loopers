@@ -7,8 +7,8 @@ import (
 	"os"
 	"strings"
 
-	"github.com/xaspx/loopers/internal/verifier"
 	"github.com/spf13/cobra"
+	"github.com/xaspx/loopers/internal/verifier"
 )
 
 var (

@@ -6,10 +6,10 @@ import (
 	"net/http"
 	"time"
 
-	"github.com/xaspx/loopers/cmd/loopers/ui"
-	"github.com/xaspx/loopers/internal/pricing"
 	"github.com/spf13/cobra"
 	"github.com/spf13/viper"
+	"github.com/xaspx/loopers/cmd/loopers/ui"
+	"github.com/xaspx/loopers/internal/pricing"
 )
 
 var doctorCmd = &cobra.Command{

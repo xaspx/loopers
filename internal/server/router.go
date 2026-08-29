@@ -12,6 +12,8 @@ import (
 	"strings"
 	"time"
 
+	"github.com/gin-gonic/gin"
+	"github.com/spf13/viper"
 	"github.com/xaspx/loopers/internal/a2a"
 	"github.com/xaspx/loopers/internal/blastradius"
 	"github.com/xaspx/loopers/internal/budget"
@@ -26,8 +28,6 @@ import (
 	"github.com/xaspx/loopers/internal/riskprofile"
 	"github.com/xaspx/loopers/internal/session"
 	"github.com/xaspx/loopers/pkg/api"
-	"github.com/gin-gonic/gin"
-	"github.com/spf13/viper"
 	"go.opentelemetry.io/otel/attribute"
 	"go.opentelemetry.io/otel/trace"
 )

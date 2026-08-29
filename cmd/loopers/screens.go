@@ -3,8 +3,8 @@ package main
 import (
 	"fmt"
 
-	"github.com/xaspx/loopers/cmd/loopers/ui"
 	"github.com/charmbracelet/huh"
+	"github.com/xaspx/loopers/cmd/loopers/ui"
 )
 
 func runScreen(action string) {

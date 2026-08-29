@@ -7,8 +7,8 @@ import (
 	"testing"
 	"time"
 
-	"github.com/xaspx/loopers/internal/keyring"
 	"github.com/stretchr/testify/assert"
+	"github.com/xaspx/loopers/internal/keyring"
 )
 
 type AdversarialTestCase struct {

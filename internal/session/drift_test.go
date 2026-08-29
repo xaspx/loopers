@@ -4,12 +4,12 @@ import (
 	"context"
 	"testing"
 
-	"github.com/xaspx/loopers/internal/policy"
 	"github.com/alicebob/miniredis/v2"
 	"github.com/redis/go-redis/v9"
 	"github.com/spf13/viper"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
+	"github.com/xaspx/loopers/internal/policy"
 )
 
 func setupTestManager(t *testing.T) (*Manager, *miniredis.Miniredis) {

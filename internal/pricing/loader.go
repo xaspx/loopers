@@ -6,8 +6,8 @@ import (
 	"sync"
 	"time"
 
-	"github.com/xaspx/loopers/internal/logging"
 	"github.com/spf13/viper"
+	"github.com/xaspx/loopers/internal/logging"
 )
 
 // ModelPrice holds the cost parameters for a specific model.

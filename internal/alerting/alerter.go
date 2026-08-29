@@ -12,11 +12,11 @@ import (
 	"sync"
 	"time"
 
-	"github.com/xaspx/loopers/internal/logging"
-	"github.com/xaspx/loopers/internal/netutil"
 	"github.com/prometheus/client_golang/prometheus"
 	"github.com/redis/go-redis/v9"
 	"github.com/spf13/viper"
+	"github.com/xaspx/loopers/internal/logging"
+	"github.com/xaspx/loopers/internal/netutil"
 )
 
 var alertsDroppedTotal = prometheus.NewCounter(prometheus.CounterOpts{
