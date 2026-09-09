@@ -1,5 +1,13 @@
 # Changelog
 
+## [2.21.3](https://github.com/xaspx/loopers/compare/v2.21.2...v2.21.3) (2026-09-09)
+
+
+### Bug Fixes
+
+* **deps:** bump golang.org/x/crypto, fast-uri, and qs to remediate security vulnerabilities ([03202a0](https://github.com/xaspx/loopers/commit/03202a0b6aaff2959acafabac8b6cdd892085258))
+* **deps:** bump golang.org/x/crypto, fast-uri, and qs to remediate security vulnerabilities ([cab9be3](https://github.com/xaspx/loopers/commit/cab9be380db6ecbefbef8965a3a43ec538fa1db1))
+
 ## [2.21.2](https://github.com/xaspx/loopers/compare/v2.21.1...v2.21.2) (2026-08-31)
 
 
