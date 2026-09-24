@@ -19,7 +19,7 @@ We are committed to absolute data privacy:
 
 ## Reporting a Vulnerability
 
-If you discover a security vulnerability, please report it immediately by opening a secure GitHub advisory or emailing our maintainers directly at xaspx@users.noreply.github.com 
+If you discover a security vulnerability, please report it immediately by opening a secure GitHub advisory or emailing our maintainers directly at security@loopers.network. 
 
 Please do not disclose vulnerabilities publicly until a patch has been cut. We commit to:
 1. Responding to your initial report within **24 hours**.
